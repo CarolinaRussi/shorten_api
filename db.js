@@ -1,11 +1,14 @@
 import mysql from "mysql";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const DB_CONFIG = {
-    host: "localhost",
-    user: "root",
-    password: "7826"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 };
-const DB_DATABASE = "shortenurl";
+const DB_DATABASE = process.env.DB_NAME;
 
 const connection = mysql.createConnection(DB_CONFIG);
 
