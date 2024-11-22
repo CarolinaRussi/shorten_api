@@ -8,11 +8,9 @@ app.use(express.json());
 app.use(cors());
 app.use("/", urlRoutes);
 
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.SERVER_PORT || 8800;
-  app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-  });
-}
+const PORT = process.env.PORT || process.env.SERVER_PORT || 8800;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
 
 export default app;
